@@ -1,0 +1,177 @@
+/* ==========================================================================
+   Rahmat Tailor Bespoke Atelier - Admin Panel Stylesheet
+   Separated CSS architecture (Loaded exclusively on /admin via Vite)
+   ========================================================================== */
+
+:root {
+  --admin-bg-base: #181615;
+  --admin-surface: #221f1d;
+  --admin-surface-card: #282422;
+  --admin-surface-hover: #322d2a;
+  --admin-border: #3b3531;
+  --admin-border-subtle: #2d2825;
+  --admin-text-main: #f5f3ef;
+  --admin-text-muted: #a8a29e;
+  --admin-text-dim: #78716c;
+  --admin-gold: #c59b27;
+  --admin-gold-hover: #d8ac34;
+  --admin-gold-glow: rgba(197, 155, 39, 0.2);
+}
+
+/* Base Body & Layout Defaults */
+body {
+  background-color: var(--admin-bg-base);
+  color: var(--admin-text-main);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Custom Scrollbar for Bespoke Admin Experience */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--admin-bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: #3d3733;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--admin-gold);
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.status-badge-verifikasi {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+.status-badge-diterima {
+  background-color: rgba(14, 165, 233, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(14, 165, 233, 0.35);
+}
+.status-badge-dipotong {
+  background-color: rgba(99, 102, 241, 0.15);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+}
+.status-badge-dijahit {
+  background-color: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+}
+.status-badge-fitting {
+  background-color: rgba(236, 72, 153, 0.15);
+  color: #f472b6;
+  border: 1px solid rgba(236, 72, 153, 0.35);
+}
+.status-badge-selesai {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+.status-badge-siap-diambil {
+  background-color: rgba(197, 155, 39, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(197, 155, 39, 0.5);
+  box-shadow: 0 0 10px rgba(197, 155, 39, 0.2);
+}
+
+/* Source Badges */
+.badge-online {
+  background-color: rgba(59, 130, 246, 0.12);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+.badge-offline {
+  background-color: rgba(168, 85, 247, 0.12);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+/* Pulse animation for urgent deadlines or waiting verification */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(0.98); }
+}
+.urgent-pulse {
+  animation: softPulse 2.5s infinite ease-in-out;
+}
+
+/* Subtle Gold Ring Focus */
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--admin-gold) !important;
+  outline-offset: 1px;
+}
+
+/* Glass Card & Modal Utilities */
+.admin-card {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: 0.75rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.admin-card:hover {
+  border-color: #4f4640;
+}
+
+/* Sidebar Navigation Buttons */
+.admin-sidebar-btn {
+  color: #a8a29e;
+  transition: all 0.15s ease;
+}
+.admin-sidebar-btn:hover {
+  background: #282422;
+  color: #f5f3ef;
+}
+.admin-sidebar-btn.active {
+  background: rgba(197, 155, 39, 0.12);
+  color: #c59b27;
+  font-weight: 600;
+}
+
+/* Print Styles for Official Nota / Invoice (PB-13 & PB-18) */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-invoice, #printable-invoice * {
+    visibility: visible;
+  }
+  #printable-invoice {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 24px;
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 12pt;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+

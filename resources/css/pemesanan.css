@@ -1,0 +1,39 @@
+/* ===== Pemesanan & Formulir Ukuran Styling ===== */
+.step-active {
+    border-color: #ba8b4e;
+    background-color: #ba8b4e;
+    color: #14171a;
+}
+
+.step-done {
+    border-color: #ba8b4e;
+    background-color: #f7eedf;
+    color: #94682a;
+}
+
+.guide-highlight {
+    animation: highlightPulse 2s ease-in-out;
+}
+
+@keyframes highlightPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(186, 139, 78, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 0 4px rgba(186, 139, 78, 0.45);
+    }
+}
+
+/* Clean numeric measurement inputs without default browser arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
