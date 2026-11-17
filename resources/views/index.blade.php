@@ -538,16 +538,14 @@
 
                 <div class="lg:col-span-5 space-y-6">
                     <div class="bg-white p-6 rounded-xl border border-[#e8e2d5] shadow-xs space-y-4">
-                        <span class="text-xs uppercase tracking-widest text-[#BA8B4E] font-bold">Lokasi Atelier Toko</span>
+                        <span class="text-xs uppercase tracking-widest text-[#BA8B4E] font-bold">Lokasi Toko</span>
                         <div class="aspect-video w-full rounded-lg overflow-hidden border border-[#e8e2d5] bg-stone-100">
                             <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=700&q=80"
                                 alt="Workshop Atelier Rahmat Tailor" class="w-full h-full object-cover" />
                         </div>
                         <div class="text-xs text-gray-600 space-y-1">
-                            <strong class="text-charcoal block">Rahmat Tailor Bespoke Menteng</strong>
-                            <p>Jl. Kebon Sirih No. 42, Menteng, Jakarta Pusat (Dekat Stasiun Gondangdia)</p>
-                            <p class="text-primary font-semibold">WhatsApp Concierge: +62 812-8899-0211</p>
-                        </div>
+                            <strong class="text-charcoal block">Rahmat Tailor</strong>
+                            <p>Jl. Anila 2 9A 47</p>
                     </div>
                 </div>
             </div>

@@ -62,7 +62,7 @@
                href="https://wa.me/6281288990211?text=Halo%20Pak%20Rahmat,%20saya%20ingin%20konsultasi%20pemesanan%20jahit"
                rel="noopener noreferrer" target="_blank">
                 <span class="material-symbols-outlined text-[18px]">chat</span>
-                <span>Konsultasi WhatsApp</span>
+                <span>Konsultasi Gratis</span>
             </a>
 
             <!-- Mobile Menu Toggle Button -->

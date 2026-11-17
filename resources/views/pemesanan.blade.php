@@ -15,9 +15,6 @@
   <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#E5DFD5]">
     <div class="space-y-2">
       <div class="flex items-center gap-2">
-        <span class="text-xs tracking-widest uppercase text-[#BA8B4E] font-bold">Concierge & Layanan Mandiri</span>
-        <span class="text-[#BA8B4E]/50">•</span>
-        <span class="text-xs uppercase text-neutral-500">Atelier Menteng</span>
       </div>
       <h1 class="font-serif text-3xl md:text-4xl text-[#14171A] font-medium tracking-tight">Booking Jadwal Ukur & Pemesanan Online</h1>
       <p class="text-sm text-neutral-600 max-w-2xl">
@@ -361,6 +358,135 @@
               <div class="relative">
                 <input class="w-full pr-10 pl-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="Contoh: 92" type="number">
                 <span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-neutral-400">cm</span>
+              </div>
+            </div>
+
+          </div>
+
+            <!-- KATEGORI: SERAGAM (UKURAN CELANA DAN BAJU) -->
+            <div class="garment-pane hidden space-y-6" id="pane-fields-seragam">
+              <div class="space-y-3">
+                <h4 class="text-xs uppercase tracking-wider font-bold text-[#14171A] border-b border-[#E5DFD5] pb-2">Ukuran Celana Seragam</h4>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-lingkar-pinggang-celana" class="block text-xs font-bold text-[#14171A]">Lingkar Pinggang *</label>
+                      <button aria-label="Panduan Lingkar Pinggang Celana Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('lingkar_pinggang')" title="Panduan Lingkar Pinggang Celana Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-lingkar-pinggang-celana" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" max="160" min="50" placeholder="Contoh: 84" required type="number">
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-lingkar-panggul-celana" class="block text-xs font-bold text-[#14171A]">Lingkar Panggul *</label>
+                      <button aria-label="Panduan Lingkar Panggul Celana Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('lingkar_panggul')" title="Panduan Lingkar Panggul Celana Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-lingkar-panggul-celana" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" max="170" min="60" placeholder="Contoh: 98" required type="number">
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-lingkar-pesak" class="block text-xs font-bold text-[#14171A]">Lingkar Pesak *</label>
+                      <button aria-label="Panduan Lingkar Pesak Celana Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('lingkar_pesak')" title="Panduan Lingkar Pesak Celana Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-lingkar-pesak" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" max="90" min="40" placeholder="Contoh: 68" required type="number">
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-lingkar-paha" class="block text-xs font-bold text-[#14171A]">Lingkar Paha *</label>
+                      <button aria-label="Panduan Lingkar Paha Celana Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('lingkar_paha')" title="Panduan Lingkar Paha Celana Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-lingkar-paha" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" max="90" min="30" placeholder="Contoh: 58" required type="number">
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-lingkar-lutut" class="block text-xs font-bold text-[#14171A]">Lingkar Lutut *</label>
+                      <button aria-label="Panduan Lingkar Lutut Celana Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('lingkar_lutut')" title="Panduan Lingkar Lutut Celana Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-lingkar-lutut" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" max="70" min="25" placeholder="Contoh: 42" required type="number">
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-lingkar-celana-bawah" class="block text-xs font-bold text-[#14171A]">Lingkar Celana Bawah *</label>
+                      <button aria-label="Panduan Lingkar Celana Bawah Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('lingkar_celana_bawah')" title="Panduan Lingkar Celana Bawah Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-lingkar-celana-bawah" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" max="60" min="20" placeholder="Contoh: 36" required type="number">
+                  </div>
+                  <div class="space-y-1 md:col-span-3">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-panjang-celana" class="block text-xs font-bold text-[#14171A]">Panjang Celana *</label>
+                      <button aria-label="Panduan Panjang Celana Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('panjang_celana')" title="Panduan Panjang Celana Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-panjang-celana" class="w-full max-w-xs px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" max="140" min="60" placeholder="Contoh: 98" required type="number">
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-3">
+                <h4 class="text-xs uppercase tracking-wider font-bold text-[#14171A] border-b border-[#E5DFD5] pb-2">Ukuran Baju Seragam</h4>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-lebar-punggung" class="block text-xs font-bold text-[#14171A]">Lebar Punggung *</label>
+                      <button aria-label="Panduan Lebar Punggung Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('lebar_punggung')" title="Panduan Lebar Punggung Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-lebar-punggung" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="Contoh: 44" required type="number">
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-lebar-bahu" class="block text-xs font-bold text-[#14171A]">Lebar Bahu *</label>
+                      <button aria-label="Panduan Lebar Bahu Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('lebar_bahu')" title="Panduan Lebar Bahu Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-lebar-bahu" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="Contoh: 46" required type="number">
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-panjang-lengan" class="block text-xs font-bold text-[#14171A]">Panjang Lengan *</label>
+                      <button aria-label="Panduan Panjang Lengan Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('panjang_lengan')" title="Panduan Panjang Lengan Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-panjang-lengan" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="Contoh: 61" required type="number">
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-lingkar-lengan-atas" class="block text-xs font-bold text-[#14171A]">Lingkar Lengan Atas *</label>
+                      <button aria-label="Panduan Lingkar Lengan Atas Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('lingkar_lengan_atas')" title="Panduan Lingkar Lengan Atas Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-lingkar-lengan-atas" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="Contoh: 36" required type="number">
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-lingkar-lengan-bawah" class="block text-xs font-bold text-[#14171A]">Lingkar Lengan Bawah *</label>
+                      <button aria-label="Panduan Lingkar Lengan Bawah Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('lingkar_lengan_bawah')" title="Panduan Lingkar Lengan Bawah Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-lingkar-lengan-bawah" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="Contoh: 24" required type="number">
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-lingkar-dada" class="block text-xs font-bold text-[#14171A]">Lingkar Dada *</label>
+                      <button aria-label="Panduan Lingkar Dada Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('lingkar_dada')" title="Panduan Lingkar Dada Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-lingkar-dada" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="Contoh: 104" required type="number">
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-lingkar-pinggang-baju" class="block text-xs font-bold text-[#14171A]">Lingkar Pinggang *</label>
+                      <button aria-label="Panduan Lingkar Pinggang Baju Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('lingkar_pinggang')" title="Panduan Lingkar Pinggang Baju Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-lingkar-pinggang-baju" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="Contoh: 90" required type="number">
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-lingkar-panggul-baju" class="block text-xs font-bold text-[#14171A]">Lingkar Panggul *</label>
+                      <button aria-label="Panduan Lingkar Panggul Baju Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('lingkar_panggul')" title="Panduan Lingkar Panggul Baju Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-lingkar-panggul-baju" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="Contoh: 102" required type="number">
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-1">
+                      <label for="seragam-panjang-baju" class="block text-xs font-bold text-[#14171A]">Panjang Baju *</label>
+                      <button aria-label="Panduan Panjang Baju Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('panjang_baju')" title="Panduan Panjang Baju Seragam" type="button">?</button>
+                    </div>
+                    <input id="seragam-panjang-baju" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="Contoh: 74" required type="number">
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -100,11 +100,11 @@ export const measureGuides = {
     line: { x1: 52, y1: 88, x2: 148, y2: 88 }
   },
   'panjang_baju': {
-    title: 'Panduan Mengukur Panjang Baju / Jas',
-    tag: 'Garis Ukur: Bahu Dekat Leher ke Keliman Bawah',
-    instruction: 'Tarik meteran tegak lurus dari pangkal bahu samping leher melewati dada hingga ke batas panjang baju yang diinginkan (sejajar pangkal ibu jari untuk jas klasik).',
-    tips: 'Berdirilah tegak menatap cermin dan biarkan tangan jatuh bebas ke bawah sebagai patokan standar panjang jas klasik.',
-    line: { x1: 78, y1: 48, x2: 78, y2: 160 }
+    title: 'Panduan Mengukur Panjang Baju',
+    tag: 'Garis Ukur: Bahu hingga Betis',
+    instruction: 'Tarik meteran tegak lurus dari pangkal bahu dekat leher melewati badan hingga ke batas betis tempat baju atau gamis berakhir.',
+    tips: 'Berdirilah tegak dengan kaki rapat dan minta bantuan orang lain agar meteran tetap lurus dari bahu sampai betis.',
+    line: { x1: 78, y1: 48, x2: 78, y2: 190 }
   },
 
   // ROK
@@ -215,10 +215,12 @@ export function selectGarmentCategory(cat) {
   });
 
   // Toggle fields container
-  ['celana', 'baju', 'rok'].forEach(c => {
+  const paneCategory = cat === 'kebaya' ? 'baju' : cat;
+
+  ['celana', 'baju', 'rok', 'seragam'].forEach(c => {
     const pane = document.getElementById('pane-fields-' + c);
     if (pane) {
-      if (c === cat) pane.classList.remove('hidden');
+      if (c === paneCategory) pane.classList.remove('hidden');
       else pane.classList.add('hidden');
     }
   });
