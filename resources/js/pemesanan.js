@@ -246,4 +246,105 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeMeasureModal();
   });
+
+  const orderForm = document.getElementById('online-order-form');
+  if (orderForm) {
+    orderForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const submitButton = orderForm.querySelector('button[type="submit"]');
+      const successBox = document.getElementById('online-order-success-box');
+      const errorBox = document.getElementById('online-order-error-box');
+      const codeBox = document.getElementById('kode-nota-pesanan');
+
+      if (errorBox) {
+        errorBox.classList.add('hidden');
+        errorBox.textContent = '';
+      }
+      if (submitButton) submitButton.disabled = true;
+
+      const category = document.getElementById('current-garment')?.value || 'celana';
+      const paneCategory = category === 'kebaya' ? 'baju' : category;
+      const inputs = Array.from(document.querySelectorAll(`#pane-fields-${paneCategory} input[type="number"]`));
+
+      const fieldsByCategory = {
+        celana: [
+          'lingkar_pinggang_celana', 'lingkar_panggul_celana', 'lingkar_pesak',
+          'lingkar_paha', 'lingkar_lutut', 'lingkar_celana_bawah', 'panjang_celana'
+        ],
+        baju: [
+          'lebar_punggung', 'lebar_bahu', 'panjang_lengan', 'lingkar_lengan_atas',
+          'lingkar_lengan_bawah', 'lingkar_dada', 'lingkar_pinggang_baju',
+          'lingkar_panggul_baju', 'panjang_baju'
+        ],
+        rok: ['lingkar_pinggang_rok', 'lingkar_panggul_rok', 'panjang_rok']
+      };
+
+      const seragamFields = [
+        'lingkar_pinggang_celana', 'lingkar_panggul_celana', 'lingkar_pesak',
+        'lingkar_paha', 'lingkar_lutut', 'lingkar_celana_bawah', 'panjang_celana',
+        'lebar_punggung', 'lebar_bahu', 'panjang_lengan', 'lingkar_lengan_atas',
+        'lingkar_lengan_bawah', 'lingkar_dada', 'lingkar_pinggang_baju',
+        'lingkar_panggul_baju', 'panjang_baju'
+      ];
+
+      const fields = category === 'seragam'
+        ? seragamFields
+        : (fieldsByCategory[paneCategory] || []);
+
+      const formData = new FormData();
+      formData.append('layanan_id', document.getElementById('layanan-id')?.value || '');
+      formData.append('kategori_busana', category);
+      formData.append('bahan', orderForm.querySelector('input[name="fab_source"]:checked')?.value || 'sendiri');
+      formData.append('ukuran_di_toko', '0');
+      formData.append('target_tanggal', document.getElementById('target-tanggal')?.value || '');
+      formData.append('catatan', document.getElementById('catatan-pesanan')?.value || '');
+
+      fields.forEach((field, index) => {
+        const value = category === 'seragam'
+          ? document.querySelectorAll('#pane-fields-seragam input[type="number"]')[index]?.value
+          : inputs[index]?.value;
+        if (value) formData.append(`ukuran[${field}]`, value);
+      });
+
+      const fileInput = document.getElementById('file-upload-input');
+      if (fileInput?.files?.length) formData.append('foto_referensi', fileInput.files[0]);
+
+      const token = document.querySelector('meta[name="csrf-token"]')?.content;
+      try {
+        const response = await fetch('/api/pesanan', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'X-CSRF-TOKEN': token || ''
+          },
+          body: formData
+        });
+        const result = await response.json();
+
+        if (!response.ok) {
+          const messages = result.errors
+            ? Object.values(result.errors).flat()
+            : [result.message || 'Pesanan belum dapat dikirim.'];
+          if (errorBox) {
+            errorBox.textContent = messages.join(' ');
+            errorBox.classList.remove('hidden');
+          }
+          return;
+        }
+
+        if (codeBox) codeBox.textContent = `KODE NOTA: #${result.kode}`;
+        if (successBox) successBox.classList.remove('hidden');
+        successBox?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        orderForm.reset();
+      } catch (error) {
+        if (errorBox) {
+          errorBox.textContent = 'Pesanan belum dapat dikirim karena koneksi bermasalah.';
+          errorBox.classList.remove('hidden');
+        }
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+      }
+    });
+  }
 });

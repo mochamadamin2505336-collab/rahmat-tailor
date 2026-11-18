@@ -37,3 +37,37 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
+
+.pemesanan-layout,
+.pemesanan-form,
+.pemesanan-form * {
+    box-sizing: border-box;
+}
+
+.pemesanan-layout {
+    width: 100%;
+}
+
+.pemesanan-form {
+    max-width: 900px;
+    margin-inline: auto;
+    overflow-wrap: anywhere;
+}
+
+.pemesanan-form input,
+.pemesanan-form textarea,
+.pemesanan-form select,
+.pemesanan-form button {
+    max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .pemesanan-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pemesanan-form {
+        width: 100%;
+    }
+}

@@ -122,85 +122,24 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Service 1 -->
-                <div class="p-6 bg-white rounded-xl border border-[#e8e2d5] shadow-sm hover:shadow-md transition-all duration-300 space-y-4">
-                    <div class="flex justify-between items-start">
-                        <span class="px-2.5 py-1 bg-camel-light text-[#94682a] text-[10px] font-bold uppercase tracking-wider rounded">Jas Formal</span>
-                        <span class="text-xs font-mono text-gray-500">Estimasi 14 Hari</span>
+                @forelse($layanan as $item)
+                    <div class="p-6 bg-white rounded-xl border border-[#e8e2d5] shadow-sm hover:shadow-md transition-all duration-300 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-1 bg-camel-light text-[#94682a] text-[10px] font-bold uppercase tracking-wider rounded">{{ $item->kategori }}</span>
+                            <span class="text-xs font-mono text-gray-500">Estimasi {{ $item->estimasi_hari }} Hari</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-charcoal">{{ $item->nama }}</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">{{ $item->deskripsi }}</p>
+                        <div class="pt-3 border-t border-[#f0eae1] flex items-center justify-between text-xs">
+                            <span class="text-gray-500">Rentang Harga:</span>
+                            <span class="font-mono font-bold text-charcoal">Rp {{ number_format($item->harga_min, 0, ',', '.') }} - Rp {{ number_format($item->harga_max, 0, ',', '.') }}</span>
+                        </div>
                     </div>
-                    <h3 class="font-serif text-xl font-bold text-charcoal">Jas Formal</h3>
-                    <p class="text-xs text-gray-600 leading-relaxed">
-                        Jahit jas formal pria dengan ukuran presisi, jahitan rapi, dan desain sesuai keinginan. Bahan berkualitas, nyaman dipakai untuk acara penting.
-                    </p>
-                    <div class="pt-3 border-t border-[#f0eae1] flex items-center justify-between text-xs">
-                        <span class="text-gray-500">Rentang Harga:</span>
-                        <span class="font-mono font-bold text-charcoal">Rp 3.500.000 - Rp 7.500.000</span>
+                @empty
+                    <div class="md:col-span-2 lg:col-span-3 p-6 border border-[#e8e2d5] rounded-xl bg-white text-sm text-gray-600">
+                        Belum ada layanan aktif yang dapat ditampilkan.
                     </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="p-6 bg-white rounded-xl border border-[#e8e2d5] shadow-sm hover:shadow-md transition-all duration-300 space-y-4">
-                    <div class="flex justify-between items-start">
-                        <span class="px-2.5 py-1 bg-camel-light text-[#94682a] text-[10px] font-bold uppercase tracking-wider rounded">Batik Tulis</span>
-                        <span class="text-xs font-mono text-gray-500">Estimasi 7 Hari</span>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-charcoal">Kemeja Batik</h3>
-                    <p class="text-xs text-gray-600 leading-relaxed">
-                        Penyesuaian motif presisi simetris tanpa terpotong di dada dan saku, dilapisi furing sutra katun bernapas sejuk, kancing sembunyi rapi.
-                    </p>
-                    <div class="pt-3 border-t border-[#f0eae1] flex items-center justify-between text-xs">
-                        <span class="text-gray-500">Rentang Harga:</span>
-                        <span class="font-mono font-bold text-charcoal">Rp 750.000 - Rp 1.400.000</span>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="p-6 bg-white rounded-xl border border-[#e8e2d5] shadow-sm hover:shadow-md transition-all duration-300 space-y-4">
-                    <div class="flex justify-between items-start">
-                        <span class="px-2.5 py-1 bg-camel-light text-[#94682a] text-[10px] font-bold uppercase tracking-wider rounded">Kebaya Modern</span>
-                        <span class="text-xs font-mono text-gray-500">Estimasi 12 Hari</span>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-charcoal">Kebaya Modern &amp; Brokat</h3>
-                    <p class="text-xs text-gray-600 leading-relaxed">
-                        Potongan pas di badan dengan payet jahit tangan yang rapi. Nyaman dipakai untuk acara wisuda, kondangan, maupun acara resmi lainnya
-                    </p>
-                    <div class="pt-3 border-t border-[#f0eae1] flex items-center justify-between text-xs">
-                        <span class="text-gray-500">Rentang Harga:</span>
-                        <span class="font-mono font-bold text-charcoal">Rp 1.500.000 - Rp 3.800.000</span>
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="p-6 bg-white rounded-xl border border-[#e8e2d5] shadow-sm hover:shadow-md transition-all duration-300 space-y-4">
-                    <div class="flex justify-between items-start">
-                        <span class="px-2.5 py-1 bg-camel-light text-[#94682a] text-[10px] font-bold uppercase tracking-wider rounded">Celana Formal</span>
-                        <span class="text-xs font-mono text-gray-500">Estimasi 5 Hari</span>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-charcoal">Celana Formal</h3>
-                    <p class="text-xs text-gray-600 leading-relaxed">
-                        Potongan klasik atau modern slim, dilengkapi sabuk internal, side adjusters logam, furing lutut halus, dan lipatan setrika tahan lama.
-                    </p>
-                    <div class="pt-3 border-t border-[#f0eae1] flex items-center justify-between text-xs">
-                        <span class="text-gray-500">Rentang Harga:</span>
-                        <span class="font-mono font-bold text-charcoal">Rp 600.000 - Rp 1.200.000</span>
-                    </div>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="p-6 bg-white rounded-xl border border-[#e8e2d5] shadow-sm hover:shadow-md transition-all duration-300 space-y-4">
-                    <div class="flex justify-between items-start">
-                        <span class="px-2.5 py-1 bg-camel-light text-[#94682a] text-[10px] font-bold uppercase tracking-wider rounded">Seragam</span>
-                        <span class="text-xs font-mono text-gray-500">Estimasi 8 Hari</span>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-charcoal">Setelan Seragam PDH</h3>
-                    <p class="text-xs text-gray-600 leading-relaxed">
-                        Bahan drill premium berstruktur kokoh, saku berpenutup berkancing rapi, standar pakaian dinas kementerian dan instansi negara.
-                    </p>
-                    <div class="pt-3 border-t border-[#f0eae1] flex items-center justify-between text-xs">
-                        <span class="text-gray-500">Rentang Harga:</span>
-                        <span class="font-mono font-bold text-charcoal">Rp 1.200.000 - Rp 2.200.000</span>
-                    </div>
-                </div>
+                @endforelse
 
                 <!-- Service 6: CTA Card -->
                 <div class="p-6 bg-gradient-to-br from-[#1c1917] to-[#2c2825] rounded-xl text-white flex flex-col justify-between shadow-md space-y-4">
@@ -232,95 +171,26 @@
 
             <!-- Gallery Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Item 1 -->
-                <div class="group bg-white rounded-xl overflow-hidden border border-[#e8e2d5] shadow-sm hover:shadow-xl transition-all duration-500">
-                    <div class="relative h-64 overflow-hidden bg-stone-900">
-                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80"
-                            alt="Tuxedo Black-Tie Wool Super 150s"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <span class="absolute top-3 left-3 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm text-primary border border-primary/40 uppercase">Bespoke Jas</span>
+                @forelse($galeri as $foto)
+                    <div class="group bg-white rounded-xl overflow-hidden border border-[#e8e2d5] shadow-sm hover:shadow-xl transition-all duration-500">
+                        <div class="relative h-64 overflow-hidden bg-stone-900">
+                            <img src="{{ Storage::disk('public')->url($foto->berkas_foto) }}"
+                                alt="{{ $foto->judul }}"
+                                width="800"
+                                height="256"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                            <span class="absolute top-3 left-3 text-[10px] font-bold px-2.5 py-0.5 rounded bg-black/60 text-primary border border-primary/40 uppercase">{{ $foto->kategori }}</span>
+                        </div>
+                        <div class="p-5 space-y-1">
+                            <h3 class="font-serif text-base font-bold text-charcoal">{{ $foto->judul }}</h3>
+                        </div>
                     </div>
-                    <div class="p-5 space-y-1">
-                        <h3 class="font-serif text-base font-bold text-charcoal">Tuxedo Black-Tie Wool Super 150s</h3>
-                        <p class="text-xs text-gray-500">Shawl Lapel Sutra Satin • Full Canvas</p>
+                @empty
+                    <div class="sm:col-span-2 lg:col-span-3 p-6 border border-[#e8e2d5] rounded-xl bg-white text-sm text-gray-600">
+                        Belum ada karya yang ditambahkan ke galeri.
                     </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="group bg-white rounded-xl overflow-hidden border border-[#e8e2d5] shadow-sm hover:shadow-xl transition-all duration-500">
-                    <div class="relative h-64 overflow-hidden bg-stone-900">
-                        <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=800&q=80"
-                            alt="Batik Tulis Sutra Solo Parang Kusumo"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <span class="absolute top-3 left-3 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm text-primary border border-primary/40 uppercase">Batik Tulis</span>
-                    </div>
-                    <div class="p-5 space-y-1">
-                        <h3 class="font-serif text-base font-bold text-charcoal">Batik Tulis Sutra Solo Parang Kusumo</h3>
-                        <p class="text-xs text-gray-500">Motif Simetris Menyambung Presisi • Furing Sutra</p>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="group bg-white rounded-xl overflow-hidden border border-[#e8e2d5] shadow-sm hover:shadow-xl transition-all duration-500">
-                    <div class="relative h-64 overflow-hidden bg-stone-900">
-                        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80"
-                            alt="Kebaya Kartini Brokat Chantilly Modern"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <span class="absolute top-3 left-3 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm text-primary border border-primary/40 uppercase">Kebaya Bespoke</span>
-                    </div>
-                    <div class="p-5 space-y-1">
-                        <h3 class="font-serif text-base font-bold text-charcoal">Kebaya Kartini Brokat Chantilly Modern</h3>
-                        <p class="text-xs text-gray-500">Aplikasi Payet Swarovski • Siluet Ramping</p>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="group bg-white rounded-xl overflow-hidden border border-[#e8e2d5] shadow-sm hover:shadow-xl transition-all duration-500">
-                    <div class="relative h-64 overflow-hidden bg-stone-900">
-                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80"
-                            alt="Double-Breasted Pinstripe Suit"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <span class="absolute top-3 left-3 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm text-primary border border-primary/40 uppercase">Bespoke Jas</span>
-                    </div>
-                    <div class="p-5 space-y-1">
-                        <h3 class="font-serif text-base font-bold text-charcoal">Double-Breasted Pinstripe Suit</h3>
-                        <p class="text-xs text-gray-500">Peak Lapel Lebar • Savile Row Sartorial Style</p>
-                    </div>
-                </div>
-
-                <!-- Item 5 -->
-                <div class="group bg-white rounded-xl overflow-hidden border border-[#e8e2d5] shadow-sm hover:shadow-xl transition-all duration-500">
-                    <div class="relative h-64 overflow-hidden bg-stone-900">
-                        <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=800&q=80"
-                            alt="Celana Gurkha Pleated Wool Charcoal"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <span class="absolute top-3 left-3 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm text-primary border border-primary/40 uppercase">Celana Formal</span>
-                    </div>
-                    <div class="p-5 space-y-1">
-                        <h3 class="font-serif text-base font-bold text-charcoal">Celana Gurkha Pleated Wool Charcoal</h3>
-                        <p class="text-xs text-gray-500">Side Adjusters Kuningan • Cuff 4 cm</p>
-                    </div>
-                </div>
-
-                <!-- Item 6 -->
-                <div class="group bg-white rounded-xl border border-[#e8e2d5] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
-                    <div class="relative h-64 overflow-hidden bg-stone-900">
-                        <img src="https://images.unsplash.com/photo-1589456355423-474c57cad55c?auto=format&fit=crop&w=800&q=80"
-                            alt="Kemeja Batik Sutra Motif Sekar Jagad"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                        <span class="absolute top-3 left-3 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm text-primary border border-primary/40 uppercase">Batik Tulis</span>
-                    </div>
-                    <div class="p-5 space-y-1">
-                        <h3 class="font-serif text-base font-bold text-charcoal">Kemeja Batik Sutra Motif Sekar Jagad</h3>
-                        <p class="text-xs text-gray-500">Saku Bobok Tersembunyi • Manset Kancing Tanduk</p>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>
@@ -366,16 +236,16 @@
                 </p>
             </div>
 
-            <form class="p-6 bg-white rounded-xl border border-[#e8e2d5] shadow-sm space-y-4" onsubmit="event.preventDefault(); document.getElementById('tracking-sample-box').classList.remove('hidden');">
+            <form id="tracker-form" class="p-6 bg-white rounded-xl border border-[#e8e2d5] shadow-sm space-y-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                     <div>
                         <label class="block text-charcoal font-bold mb-1">Kode Pesanan (8 Karakter) *</label>
-                        <input type="text" required placeholder="Misal: RT-8X39K1"
+                        <input id="tracker-input" name="kode" type="text" required maxlength="8" placeholder="Misal: RT-8X39K1"
                             class="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#e8e2d5] rounded-lg text-charcoal font-mono uppercase focus:border-primary focus:outline-none" />
                     </div>
                     <div>
                         <label class="block text-charcoal font-bold mb-1">4 Digit Terakhir No. WhatsApp *</label>
-                        <input type="text" maxlength="4" placeholder="Misal: 7890"
+                        <input id="tracker-digit" name="empat_digit" type="text" required pattern="[0-9]{4}" maxlength="4" placeholder="Misal: 7890"
                             class="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#e8e2d5] rounded-lg text-charcoal font-mono focus:border-primary focus:outline-none" />
                     </div>
                 </div>
@@ -489,16 +359,16 @@
                         <p class="text-xs text-gray-600 mt-1">Silakan tentukan waktu kunjungan Anda. Master Tailor kami meluangkan waktu eksklusif 45-60 menit per pelanggan.</p>
                     </div>
 
-                    <form class="space-y-4 text-xs" onsubmit="event.preventDefault(); alert('Reservasi berhasil dikirim! Concierge Rahmat Tailor akan mengonfirmasi sesi Anda melalui WhatsApp.');">
+                    <form id="booking-form" class="space-y-4 text-xs">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-charcoal font-bold mb-1">Nama Lengkap Pemesan *</label>
-                                <input type="text" required placeholder="Contoh: Bpk. H. Hendrawan"
+                                <input id="booking-name" type="text" required placeholder="Contoh: Bpk. H. Hendrawan"
                                     class="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#e8e2d5] rounded-lg text-charcoal focus:border-primary focus:outline-none" />
                             </div>
                             <div>
                                 <label class="block text-charcoal font-bold mb-1">Nomor WhatsApp Aktif *</label>
-                                <input type="tel" required placeholder="+62 812-3456-7890"
+                                <input id="booking-whatsapp" type="tel" required placeholder="+62 812-3456-7890"
                                     class="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#e8e2d5] rounded-lg text-charcoal font-mono focus:border-primary focus:outline-none" />
                             </div>
                         </div>
@@ -506,7 +376,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-charcoal font-bold mb-1">Rencana Busana *</label>
-                                <select class="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#e8e2d5] rounded-lg text-charcoal focus:border-primary focus:outline-none">
+                                <select id="booking-service" class="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#e8e2d5] rounded-lg text-charcoal focus:border-primary focus:outline-none">
                                     <option>Jas Bespoke Formal</option>
                                     <option>Kemeja Batik Tulis Sutra</option>
                                     <option>Kebaya &amp; Gaun Pengantin</option>
@@ -516,23 +386,25 @@
                             </div>
                             <div>
                                 <label class="block text-charcoal font-bold mb-1">Pilihan Bahan Kain *</label>
-                                <select class="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#e8e2d5] rounded-lg text-charcoal focus:border-primary focus:outline-none">
-                                    <option>Membawa Bahan Kain Sendiri</option>
-                                    <option>Memilih Bahan Koleksi Atelier</option>
+                                <select id="booking-material" class="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#e8e2d5] rounded-lg text-charcoal focus:border-primary focus:outline-none">
+                                    <option value="sendiri">Membawa Bahan Kain Sendiri</option>
+                                    <option value="toko">Memilih Bahan Koleksi Atelier</option>
                                 </select>
                             </div>
                         </div>
 
                         <div>
                             <label class="block text-charcoal font-bold mb-1">Tanggal Kunjungan *</label>
-                            <input type="date" required value="2026-11-18"
+                            <input id="booking-date" type="date" required
                                 class="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#e8e2d5] rounded-lg text-charcoal" />
                         </div>
 
-                        <button type="submit"
+                        <button id="booking-submit-btn" type="submit"
                             class="w-full py-4 bg-primary text-charcoal hover:bg-[#d6a96e] rounded-lg text-xs font-bold uppercase tracking-widest transition-all shadow-md mt-2 cursor-pointer">
-                            Konfirmasi Booking Jadwal Ukur di Toko
+                            <span id="booking-spinner" class="hidden">Memproses...</span>
+                            <span id="booking-btn-text">Konfirmasi Booking Jadwal Ukur di Toko</span>
                         </button>
+                        <div id="booking-toast" class="hidden p-3 border border-primary/40 bg-[#FAF4EB] rounded-lg text-xs text-charcoal" role="status"></div>
                     </form>
                 </div>
 

@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Panel Admin — Rahmat Tailor Bespoke Atelier</title>
 
@@ -485,86 +486,11 @@
                             <h3 class="text-sm font-bold text-white">Profil Ukuran Pelanggan</h3>
                             <div class="relative w-64">
                                 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[16px] text-[#78716c]">search</span>
-                                <input type="text" placeholder="Cari pelanggan..." class="w-full pl-9 pr-4 py-2 bg-[#181615] border border-[#3b3531] rounded-lg text-sm text-white placeholder-[#78716c] focus:border-[#c59b27]" />
+                                <input id="ukuran-search" type="search" placeholder="Cari pelanggan..." class="w-full pl-9 pr-4 py-2 bg-[#181615] border border-[#3b3531] rounded-lg text-sm text-white placeholder-[#78716c] focus:border-[#c59b27]" />
                             </div>
                         </div>
-                        <div class="divide-y divide-[#2d2825]">
-                            {{-- Customer 1 --}}
-                            <div class="p-5 hover:bg-[#221f1d] transition-colors">
-                                <div class="flex items-center justify-between mb-3">
-                                    <div>
-                                        <p class="text-sm font-semibold text-white">Bp. Hendra Wijaya</p>
-                                        <p class="text-xs text-[#a8a29e]">Terakhir diukur: 5 Nov 2026</p>
-                                    </div>
-                                    <button class="inline-flex items-center gap-1 px-3 py-1.5 bg-[#c59b27]/10 text-[#c59b27] rounded-lg text-xs font-semibold hover:bg-[#c59b27]/20 transition-colors">
-                                        <span class="material-symbols-outlined text-[14px]">content_copy</span> Gunakan untuk Pesanan Baru
-                                    </button>
-                                </div>
-                                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3">
-                                    <div class="bg-[#181615] rounded-lg p-2.5 text-center">
-                                        <p class="text-[10px] text-[#78716c] uppercase tracking-wider">Lingkar Dada</p>
-                                        <p class="text-sm font-bold text-white mt-0.5">102 cm</p>
-                                    </div>
-                                    <div class="bg-[#181615] rounded-lg p-2.5 text-center">
-                                        <p class="text-[10px] text-[#78716c] uppercase tracking-wider">Lingkar Pinggang</p>
-                                        <p class="text-sm font-bold text-white mt-0.5">88 cm</p>
-                                    </div>
-                                    <div class="bg-[#181615] rounded-lg p-2.5 text-center">
-                                        <p class="text-[10px] text-[#78716c] uppercase tracking-wider">Panjang Baju</p>
-                                        <p class="text-sm font-bold text-white mt-0.5">72 cm</p>
-                                    </div>
-                                    <div class="bg-[#181615] rounded-lg p-2.5 text-center">
-                                        <p class="text-[10px] text-[#78716c] uppercase tracking-wider">Lebar Bahu</p>
-                                        <p class="text-sm font-bold text-white mt-0.5">46 cm</p>
-                                    </div>
-                                    <div class="bg-[#181615] rounded-lg p-2.5 text-center">
-                                        <p class="text-[10px] text-[#78716c] uppercase tracking-wider">Pjg Lengan</p>
-                                        <p class="text-sm font-bold text-white mt-0.5">62 cm</p>
-                                    </div>
-                                    <div class="bg-[#181615] rounded-lg p-2.5 text-center">
-                                        <p class="text-[10px] text-[#78716c] uppercase tracking-wider">Lingkar Leher</p>
-                                        <p class="text-sm font-bold text-white mt-0.5">40 cm</p>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- Customer 2 --}}
-                            <div class="p-5 hover:bg-[#221f1d] transition-colors">
-                                <div class="flex items-center justify-between mb-3">
-                                    <div>
-                                        <p class="text-sm font-semibold text-white">Ibu Sari Dewi</p>
-                                        <p class="text-xs text-[#a8a29e]">Terakhir diukur: 8 Nov 2026</p>
-                                    </div>
-                                    <button class="inline-flex items-center gap-1 px-3 py-1.5 bg-[#c59b27]/10 text-[#c59b27] rounded-lg text-xs font-semibold hover:bg-[#c59b27]/20 transition-colors">
-                                        <span class="material-symbols-outlined text-[14px]">content_copy</span> Gunakan untuk Pesanan Baru
-                                    </button>
-                                </div>
-                                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3">
-                                    <div class="bg-[#181615] rounded-lg p-2.5 text-center">
-                                        <p class="text-[10px] text-[#78716c] uppercase tracking-wider">Lingkar Dada</p>
-                                        <p class="text-sm font-bold text-white mt-0.5">90 cm</p>
-                                    </div>
-                                    <div class="bg-[#181615] rounded-lg p-2.5 text-center">
-                                        <p class="text-[10px] text-[#78716c] uppercase tracking-wider">Lingkar Pinggang</p>
-                                        <p class="text-sm font-bold text-white mt-0.5">72 cm</p>
-                                    </div>
-                                    <div class="bg-[#181615] rounded-lg p-2.5 text-center">
-                                        <p class="text-[10px] text-[#78716c] uppercase tracking-wider">Panjang Kebaya</p>
-                                        <p class="text-sm font-bold text-white mt-0.5">65 cm</p>
-                                    </div>
-                                    <div class="bg-[#181615] rounded-lg p-2.5 text-center">
-                                        <p class="text-[10px] text-[#78716c] uppercase tracking-wider">Lebar Bahu</p>
-                                        <p class="text-sm font-bold text-white mt-0.5">38 cm</p>
-                                    </div>
-                                    <div class="bg-[#181615] rounded-lg p-2.5 text-center">
-                                        <p class="text-[10px] text-[#78716c] uppercase tracking-wider">Lingkar Pinggul</p>
-                                        <p class="text-sm font-bold text-white mt-0.5">96 cm</p>
-                                    </div>
-                                    <div class="bg-[#181615] rounded-lg p-2.5 text-center">
-                                        <p class="text-[10px] text-[#78716c] uppercase tracking-wider">Pjg Lengan</p>
-                                        <p class="text-sm font-bold text-white mt-0.5">55 cm</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="ukuran-history-list" class="divide-y divide-[#2d2825]">
+                            <p class="p-5 text-sm text-[#a8a29e]" id="ukuran-history-loading">Memuat riwayat ukuran...</p>
                         </div>
                     </div>
                 </section>
@@ -577,23 +503,12 @@
                         <div class="admin-card overflow-hidden">
                             <div class="px-5 py-4 border-b border-[#2d2825] flex items-center justify-between">
                                 <h3 class="text-sm font-bold text-white">Daftar Layanan</h3>
-                                <button class="inline-flex items-center gap-1 px-3 py-1.5 bg-[#c59b27] text-[#181615] rounded-lg text-xs font-bold hover:bg-[#d8ac34] transition-colors">
+                                <button id="btn-add-layanan" type="button" class="inline-flex items-center gap-1 px-3 py-1.5 bg-[#c59b27] text-[#181615] rounded-lg text-xs font-bold hover:bg-[#d8ac34] transition-colors">
                                     <span class="material-symbols-outlined text-[14px]">add</span> Tambah
                                 </button>
                             </div>
-                            <div class="divide-y divide-[#2d2825]">
-                                @foreach (['Jas 2 Piece' => 'Rp 2.500.000', 'Jas 3 Piece' => 'Rp 3.200.000', 'Kebaya Modern' => 'Rp 1.800.000', 'Batik Tulis Shirt' => 'Rp 950.000', 'Gamis Premium' => 'Rp 1.200.000', 'Safari Suit' => 'Rp 2.000.000'] as $service => $price)
-                                <div class="flex items-center justify-between p-4 hover:bg-[#221f1d] transition-colors">
-                                    <div>
-                                        <p class="text-sm font-semibold text-white">{{ $service }}</p>
-                                        <p class="text-xs text-[#c59b27] font-semibold mt-0.5">{{ $price }}</p>
-                                    </div>
-                                    <div class="flex items-center gap-1">
-                                        <button class="p-1.5 rounded hover:bg-[#282422] text-[#a8a29e] hover:text-[#c59b27] transition-colors" title="Edit"><span class="material-symbols-outlined text-[18px]">edit</span></button>
-                                        <button class="p-1.5 rounded hover:bg-[#282422] text-[#a8a29e] hover:text-red-400 transition-colors" title="Hapus"><span class="material-symbols-outlined text-[18px]">delete</span></button>
-                                    </div>
-                                </div>
-                                @endforeach
+                            <div id="layanan-list" class="divide-y divide-[#2d2825]">
+                                <p class="p-5 text-sm text-[#a8a29e]">Memuat layanan...</p>
                             </div>
                         </div>
 
@@ -601,22 +516,12 @@
                         <div class="admin-card overflow-hidden">
                             <div class="px-5 py-4 border-b border-[#2d2825] flex items-center justify-between">
                                 <h3 class="text-sm font-bold text-white">Galeri Portofolio</h3>
-                                <button class="inline-flex items-center gap-1 px-3 py-1.5 bg-[#c59b27] text-[#181615] rounded-lg text-xs font-bold hover:bg-[#d8ac34] transition-colors">
+                                <button id="btn-add-galeri" type="button" class="inline-flex items-center gap-1 px-3 py-1.5 bg-[#c59b27] text-[#181615] rounded-lg text-xs font-bold hover:bg-[#d8ac34] transition-colors">
                                     <span class="material-symbols-outlined text-[14px]">upload</span> Upload
                                 </button>
                             </div>
-                            <div class="p-5 grid grid-cols-3 gap-3">
-                                @for ($i = 1; $i <= 6; $i++)
-                                <div class="group relative aspect-square bg-[#282422] rounded-lg overflow-hidden cursor-pointer">
-                                    <div class="w-full h-full flex items-center justify-center text-[#78716c]">
-                                        <span class="material-symbols-outlined text-[32px]">image</span>
-                                    </div>
-                                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <button class="p-1.5 bg-white/20 rounded-lg hover:bg-white/30 transition-colors"><span class="material-symbols-outlined text-white text-[18px]">edit</span></button>
-                                        <button class="p-1.5 bg-white/20 rounded-lg hover:bg-white/30 transition-colors"><span class="material-symbols-outlined text-white text-[18px]">delete</span></button>
-                                    </div>
-                                </div>
-                                @endfor
+                            <div id="galeri-list" class="p-5 grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                <p class="col-span-full text-sm text-[#a8a29e]">Memuat galeri...</p>
                             </div>
                         </div>
                     </div>
@@ -738,6 +643,90 @@
     {{-- ================================================================
          MODALS
          ================================================================ --}}
+
+    <div id="modal-layanan" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-layanan-title">
+        <div class="admin-card w-full max-w-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-[#2d2825]">
+                <h3 id="modal-layanan-title" class="text-base font-bold text-white">Tambah Layanan</h3>
+                <button type="button" class="modal-close p-1.5 rounded hover:bg-[#282422] text-[#a8a29e] hover:text-white" aria-label="Tutup">
+                    <span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+                </button>
+            </div>
+            <form id="layanan-form" class="p-6 space-y-4">
+                <input id="layanan-id" type="hidden">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="layanan-nama" class="block text-xs text-[#a8a29e] mb-1">Nama layanan</label>
+                        <input id="layanan-nama" type="text" maxlength="100" required class="w-full px-3 py-2 bg-[#181615] border border-[#3b3531] rounded-lg text-sm text-white">
+                    </div>
+                    <div>
+                        <label for="layanan-kategori" class="block text-xs text-[#a8a29e] mb-1">Kategori</label>
+                        <input id="layanan-kategori" type="text" maxlength="60" required class="w-full px-3 py-2 bg-[#181615] border border-[#3b3531] rounded-lg text-sm text-white">
+                    </div>
+                    <div>
+                        <label for="layanan-harga-min" class="block text-xs text-[#a8a29e] mb-1">Harga minimum</label>
+                        <input id="layanan-harga-min" type="number" min="0" required class="w-full px-3 py-2 bg-[#181615] border border-[#3b3531] rounded-lg text-sm text-white">
+                    </div>
+                    <div>
+                        <label for="layanan-harga-max" class="block text-xs text-[#a8a29e] mb-1">Harga maksimum</label>
+                        <input id="layanan-harga-max" type="number" min="0" required class="w-full px-3 py-2 bg-[#181615] border border-[#3b3531] rounded-lg text-sm text-white">
+                    </div>
+                    <div>
+                        <label for="layanan-estimasi" class="block text-xs text-[#a8a29e] mb-1">Estimasi hari</label>
+                        <input id="layanan-estimasi" type="number" min="1" max="365" required class="w-full px-3 py-2 bg-[#181615] border border-[#3b3531] rounded-lg text-sm text-white">
+                    </div>
+                    <div>
+                        <label for="layanan-urutan" class="block text-xs text-[#a8a29e] mb-1">Urutan</label>
+                        <input id="layanan-urutan" type="number" min="0" value="0" class="w-full px-3 py-2 bg-[#181615] border border-[#3b3531] rounded-lg text-sm text-white">
+                    </div>
+                </div>
+                <div>
+                    <label for="layanan-deskripsi" class="block text-xs text-[#a8a29e] mb-1">Deskripsi</label>
+                    <textarea id="layanan-deskripsi" maxlength="1000" rows="4" class="w-full px-3 py-2 bg-[#181615] border border-[#3b3531] rounded-lg text-sm text-white resize-none"></textarea>
+                </div>
+                <label class="inline-flex items-center gap-2 text-sm text-[#a8a29e]">
+                    <input id="layanan-aktif" type="checkbox" checked class="accent-[#c59b27]">
+                    Layanan aktif
+                </label>
+                <p id="layanan-feedback" class="hidden text-sm" role="alert"></p>
+                <button type="submit" class="w-full py-3 bg-[#c59b27] text-[#181615] rounded-lg text-sm font-bold hover:bg-[#d8ac34]">Simpan Layanan</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-galeri" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-galeri-title">
+        <div class="admin-card w-full max-w-lg">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-[#2d2825]">
+                <h3 id="modal-galeri-title" class="text-base font-bold text-white">Upload Galeri</h3>
+                <button type="button" class="modal-close p-1.5 rounded hover:bg-[#282422] text-[#a8a29e] hover:text-white" aria-label="Tutup">
+                    <span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+                </button>
+            </div>
+            <form id="galeri-form" class="p-6 space-y-4" enctype="multipart/form-data">
+                <input id="galeri-id" type="hidden">
+                <div>
+                    <label for="galeri-judul" class="block text-xs text-[#a8a29e] mb-1">Judul</label>
+                    <input id="galeri-judul" type="text" maxlength="150" required class="w-full px-3 py-2 bg-[#181615] border border-[#3b3531] rounded-lg text-sm text-white">
+                </div>
+                <div>
+                    <label for="galeri-kategori" class="block text-xs text-[#a8a29e] mb-1">Kategori</label>
+                    <input id="galeri-kategori" type="text" maxlength="60" required class="w-full px-3 py-2 bg-[#181615] border border-[#3b3531] rounded-lg text-sm text-white">
+                </div>
+                <div>
+                    <label for="galeri-layanan" class="block text-xs text-[#a8a29e] mb-1">Layanan terkait</label>
+                    <select id="galeri-layanan" class="w-full px-3 py-2 bg-[#181615] border border-[#3b3531] rounded-lg text-sm text-white">
+                        <option value="">Tidak terkait</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="galeri-foto" class="block text-xs text-[#a8a29e] mb-1">Foto JPG atau PNG, maksimal 5 MB</label>
+                    <input id="galeri-foto" type="file" accept="image/jpeg,image/png" class="w-full text-sm text-[#a8a29e] file:mr-3 file:px-3 file:py-2 file:rounded-lg file:border-0 file:bg-[#282422] file:text-white">
+                </div>
+                <p id="galeri-feedback" class="hidden text-sm" role="alert"></p>
+                <button type="submit" class="w-full py-3 bg-[#c59b27] text-[#181615] rounded-lg text-sm font-bold hover:bg-[#d8ac34]">Simpan Galeri</button>
+            </form>
+        </div>
+    </div>
 
     {{-- === ORDER DETAIL MODAL (PB-20) === --}}
     <div id="modal-detail" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true">

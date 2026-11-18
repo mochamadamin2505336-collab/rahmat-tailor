@@ -35,10 +35,10 @@
 
 <!-- TAB 2: PEMESANAN ONLINE & UKURAN MANDIRI -->
 <section class="max-w-[1280px] w-full mx-auto px-6 lg:px-12 py-6" id="pane-online">
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+  <div class="pemesanan-layout grid grid-cols-1 gap-8 items-start">
     
     <!-- Formulir Kiri (7 Cols) -->
-    <div class="lg:col-span-7 bg-white p-8 md:p-10 rounded-xl shadow-[0_4px_24px_rgba(20,23,26,0.06)] border border-[#E5DFD5] space-y-8">
+    <div class="pemesanan-form w-full min-w-0 bg-white p-5 sm:p-8 md:p-10 rounded-xl shadow-[0_4px_24px_rgba(20,23,26,0.06)] border border-[#E5DFD5] space-y-8">
       <div>
         <div class="flex items-center gap-2 text-[#BA8B4E] mb-1">
           <span class="material-symbols-outlined text-[18px]">tune</span>
@@ -50,7 +50,10 @@
         </p>
       </div>
 
-      <form class="space-y-8" id="online-order-form" onsubmit="event.preventDefault(); document.getElementById('online-order-success-box').classList.remove('hidden'); window.scrollTo({top: 400, behavior: 'smooth'});">
+      <form class="space-y-8" id="online-order-form" enctype="multipart/form-data">
+        @if($layanan->isNotEmpty())
+          <input id="layanan-id" type="hidden" value="{{ $layanan->first()->id }}">
+        @endif
         
         <!-- A. INFORMASI PELANGGAN -->
         <div class="space-y-4">
@@ -63,14 +66,14 @@
               <label class="block text-xs uppercase tracking-wider font-bold text-[#14171A]">Nama Lengkap *</label>
               <div class="relative">
                 <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 text-[18px]">person</span>
-                <input class="w-full pl-10 pr-4 py-2.5 bg-[#FAF8F5] border border-[#E5DFD5] text-sm text-[#14171A] rounded focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="Misal: Ibu Dewi Lestari / Bpk Dimas" required type="text">
+                <input class="w-full pl-10 pr-4 py-2.5 bg-[#FAF8F5] border border-[#E5DFD5] text-sm text-[#14171A] rounded focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="Misal: Ibu Dewi Lestari / Bpk Dimas" required type="text" value="{{ auth()->user()->name }}">
               </div>
             </div>
             <div class="space-y-1.5">
               <label class="block text-xs uppercase tracking-wider font-bold text-[#14171A]">Nomor WhatsApp Aktif *</label>
               <div class="relative">
                 <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-[#BA8B4E]">+62</span>
-                <input class="w-full pl-12 pr-4 py-2.5 bg-[#FAF8F5] border border-[#E5DFD5] text-sm text-[#14171A] rounded focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="812-9876-5432" required type="tel">
+                <input class="w-full pl-12 pr-4 py-2.5 bg-[#FAF8F5] border border-[#E5DFD5] text-sm text-[#14171A] rounded focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" placeholder="812-9876-5432" required type="tel" value="{{ auth()->user()->pelanggan?->no_whatsapp }}">
               </div>
               <p class="text-[11px] text-neutral-500">Kode nota tiket acak 8 karakter akan dikirimkan ke nomor ini.</p>
             </div>
@@ -502,7 +505,7 @@
             <span class="text-xs text-neutral-500">JPG, PNG, WEBP (Maks 10MB)</span>
           </div>
           <div class="p-6 bg-[#FAF8F5] border-2 border-dashed border-[#E5DFD5] hover:border-[#BA8B4E] rounded-xl text-center cursor-pointer transition-all" onclick="document.getElementById('file-upload-input').click()">
-            <input accept="image/*" class="hidden" id="file-upload-input" onchange="if(this.files[0]) document.getElementById('upload-preview-tag').textContent = 'File terpilih: ' + this.files[0].name" type="file">
+            <input accept="image/*" class="hidden" id="file-upload-input" name="foto_referensi" onchange="if(this.files[0]) document.getElementById('upload-preview-tag').textContent = 'File terpilih: ' + this.files[0].name" type="file">
             <div class="flex flex-col items-center justify-center space-y-2 pointer-events-none">
               <div class="w-12 h-12 rounded-full bg-[#FAF4EB] border border-[#BA8B4E]/30 flex items-center justify-center text-[#BA8B4E]">
                 <span class="material-symbols-outlined text-[26px]">add_photo_alternate</span>
@@ -524,18 +527,18 @@
             <div class="space-y-1.5">
               <label class="block text-xs uppercase tracking-wider font-bold text-[#14171A]">Ketersediaan Kain *</label>
               <div class="grid grid-cols-2 gap-2">
-                <label class="flex items-center justify-center gap-2 p-2.5 rounded bg-[#FAF4EB] border border-[#BA8B4E] cursor-pointer text-xs font-bold text-[#14171A]"><input checked class="sr-only" name="fab_source" type="radio"> Kirim Kain Sendiri</label>
-                <label class="flex items-center justify-center gap-2 p-2.5 rounded bg-[#FAF8F5] border border-[#E5DFD5] cursor-pointer text-xs font-semibold text-neutral-700"><input class="sr-only" name="fab_source" type="radio"> Rekomendasi Atelier</label>
+                <label class="flex items-center justify-center gap-2 p-2.5 rounded bg-[#FAF4EB] border border-[#BA8B4E] cursor-pointer text-xs font-bold text-[#14171A]"><input checked class="sr-only" name="fab_source" type="radio" value="sendiri"> Kirim Kain Sendiri</label>
+                <label class="flex items-center justify-center gap-2 p-2.5 rounded bg-[#FAF8F5] border border-[#E5DFD5] cursor-pointer text-xs font-semibold text-neutral-700"><input class="sr-only" name="fab_source" type="radio" value="toko"> Rekomendasi Atelier</label>
               </div>
             </div>
             <div class="space-y-1.5">
               <label class="block text-xs uppercase tracking-wider font-bold text-[#14171A]">Target Tanggal Digunakan (Opsional)</label>
-              <input class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] text-xs text-[#14171A] rounded" type="date">
+              <input id="target-tanggal" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] text-xs text-[#14171A] rounded" type="date">
             </div>
           </div>
           <div class="space-y-1.5">
             <label class="block text-xs uppercase tracking-wider font-bold text-[#14171A]">Catatan Khusus Desain / Siluet / Fitting</label>
-            <textarea class="w-full px-4 py-2.5 bg-[#FAF8F5] border border-[#E5DFD5] text-sm text-[#14171A] rounded focus:outline-none focus:ring-2 focus:ring-[#BA8B4E] resize-none" placeholder="Contoh: Saku samping miring, tanpa lipatan bawah (plain hem), kancing tanduk horn gelap, dan beri ruang leluasa di selangkang." rows="3"></textarea>
+            <textarea id="catatan-pesanan" class="w-full px-4 py-2.5 bg-[#FAF8F5] border border-[#E5DFD5] text-sm text-[#14171A] rounded focus:outline-none focus:ring-2 focus:ring-[#BA8B4E] resize-none" placeholder="Contoh: Saku samping miring, tanpa lipatan bawah (plain hem), kancing tanduk horn gelap, dan beri ruang leluasa di selangkang." rows="3"></textarea>
           </div>
         </div>
 
@@ -555,12 +558,13 @@
       </form>
 
       <!-- Alert Sukses Pemesanan (Hidden) -->
+      <div class="hidden p-4 bg-red-50 border border-red-300 rounded-lg text-sm text-red-700" id="online-order-error-box" role="alert"></div>
       <div class="hidden p-6 bg-[#FAF4EB] border-2 border-[#BA8B4E] rounded-xl space-y-3" id="online-order-success-box">
         <div class="flex items-start gap-3">
           <span class="material-symbols-outlined text-[#BA8B4E] text-3xl">task_alt</span>
           <div class="space-y-1">
             <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 bg-[#14171A] text-white font-mono text-xs font-bold rounded">KODE NOTA: #RT-8294XJ91</span>
+              <span id="kode-nota-pesanan" class="px-2 py-0.5 bg-[#14171A] text-white font-mono text-xs font-bold rounded">KODE NOTA:</span>
               <span class="px-2 py-0.5 bg-[#BA8B4E]/20 text-[#BA8B4E] text-[10px] font-bold uppercase rounded">Terkirim</span>
             </div>
             <h4 class="font-serif text-lg font-bold text-[#14171A]">Pesanan & Data Ukuran Berhasil Terkirim!</h4>

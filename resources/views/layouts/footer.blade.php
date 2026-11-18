@@ -62,10 +62,14 @@
                    href="{{ url('/#booking') }}">
                     &rarr; Reservasi Jadwal Fitting di Toko
                 </a>
-                <a class="font-body-sm text-body-sm text-gray-500 hover:text-primary transition-colors inline-block hover:translate-x-1 pt-1"
-                   href="{{ route('admin') }}">
-                    &rarr; Panel Manajemen Admin
-                </a>
+                @auth
+                    @if(auth()->user()->isAdmin())
+                        <a class="font-body-sm text-body-sm text-gray-500 hover:text-primary transition-colors inline-block hover:translate-x-1 pt-1"
+                           href="{{ route('admin') }}">
+                            &rarr; Panel Manajemen Admin
+                        </a>
+                    @endif
+                @endauth
             </nav>
         </div>
     </div>

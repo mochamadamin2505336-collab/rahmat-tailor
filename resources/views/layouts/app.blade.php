@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta content="web_standard" name="shell-type" />
     <meta name="description" content="@yield('meta_description', 'Rahmat Tailor - Penjahit Jas, Batik Tulis & Kebaya Adibusana Bespoke Menteng Jakarta Pusat sejak 1996.')" />
     <title>@yield('title', 'Rahmat Tailor')</title>
