@@ -5,9 +5,6 @@
             <div class="flex items-center gap-3">
                 <span class="font-headline-sm text-headline-sm text-white">Rahmat Tailor<span class="text-primary text-xl">.</span></span>
             </div>
-            <p class="font-body-sm text-body-sm text-gray-400 leading-relaxed">
-                Dedikasi lebih dari tiga dekade dalam seni jahit bespoke, menyatukan presisi anatomi tubuh dengan estetika kain kelas dunia untuk busana yang personal, nyaman, dan berwibawa.
-            </p>
             <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-[#1e2226] rounded-DEFAULT border border-primary/30 shimmer-badge">
                 <span class="material-symbols-outlined text-primary text-[16px]">verified</span>
                 <span class="font-label-md text-label-md text-primary uppercase font-bold">Garansi Pas Sempurna (100% Fit Guarantee)</span>
@@ -27,13 +24,12 @@
 
         <!-- Col 3: Lokasi & Kontak -->
         <div class="space-y-3">
-            <h4 class="font-title-md text-title-md text-white">Atelier &amp; Kontak</h4>
+            <h4 class="font-title-md text-title-md text-white">Kios &amp; Kontak</h4>
             <p class="font-body-sm text-body-sm text-gray-400 leading-relaxed">
                 Jl. Anila 2 No.9A/47 RT.03/RW.04, Kel. Sekarpuro, Kec. Pakis, Kab. Malang, Jawa Timur 65154
             </p>
             <p class="font-body-sm text-body-sm text-gray-400">
-                WhatsApp: +62 812-8899-0211<br />
-                Telepon: (021) 392-8812<br />
+                WhatsApp: 089694756666<br />
                 Email: [EMAIL_ADDRESS]
             </p>
         </div>
@@ -44,29 +40,29 @@
             <nav class="flex flex-col space-y-2">
                 <a class="font-body-sm text-body-sm text-gray-400 hover:text-primary transition-colors inline-block hover:translate-x-1"
                    href="{{ route('pemesanan') }}">
-                    &rarr; Formulir Pemesanan &amp; Ukuran Online
+                   Formulir Pemesanan &amp; Ukuran Online
                 </a>
                 <a class="font-body-sm text-body-sm text-gray-400 hover:text-primary transition-colors inline-block hover:translate-x-1"
                    href="{{ url('/#layanan') }}">
-                    &rarr; Daftar Layanan &amp; Biaya Jahit
+                   Daftar Layanan &amp; Biaya Jahit
                 </a>
                 <a class="font-body-sm text-body-sm text-gray-400 hover:text-primary transition-colors inline-block hover:translate-x-1"
                    href="{{ url('/#galeri') }}">
-                    &rarr; Galeri Portofolio &amp; Busana
+                   Galeri Portofolio &amp; Busana
                 </a>
                 <a class="font-body-sm text-body-sm text-gray-400 hover:text-primary transition-colors inline-block hover:translate-x-1"
                    href="{{ url('/#lacak') }}">
-                    &rarr; Lacak Progres Jahitan Garment
+                   Lacak Progres Jahitan Garment
                 </a>
                 <a class="font-body-sm text-body-sm text-gray-400 hover:text-primary transition-colors inline-block hover:translate-x-1"
                    href="{{ url('/#booking') }}">
-                    &rarr; Reservasi Jadwal Fitting di Toko
+                     Reservasi Jadwal Fitting di Toko
                 </a>
                 @auth
                     @if(auth()->user()->isAdmin())
                         <a class="font-body-sm text-body-sm text-gray-500 hover:text-primary transition-colors inline-block hover:translate-x-1 pt-1"
                            href="{{ route('admin') }}">
-                            &rarr; Panel Manajemen Admin
+                           Panel Manajemen Admin
                         </a>
                     @endif
                 @endauth

@@ -54,6 +54,9 @@ class LaporanController extends Controller
         }
 
         $totalPendapatan = (int) $pembayaran->sum('jumlah');
+        $dp = (int) $pembayaran->where('jenis', 'dp')->sum('jumlah');
+        $pelunasan = (int) $pembayaran->where('jenis', 'pelunasan')->sum('jumlah');
+        $piutang = (int) $pesanan->sum(fn (Pesanan $item): int => $item->sisaTagihan() ?? 0);
 
         $perKategori = $pesanan
             ->groupBy(fn (Pesanan $item): string => $item->layanan->kategori)
@@ -76,6 +79,9 @@ class LaporanController extends Controller
             'sumber' => $sumber?->value,
             'total_pesanan' => $pesanan->count(),
             'total_pendapatan' => $totalPendapatan,
+            'dp' => $dp,
+            'pelunasan' => $pelunasan,
+            'piutang' => $piutang,
             'bulanan' => $bulanan,
             'per_kategori' => $perKategori,
         ]);

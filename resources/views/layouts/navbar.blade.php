@@ -31,18 +31,18 @@
                 Galeri
             </a>
 
-            <!-- Lacak Pesanan -->
-            <a class="nav-item whitespace-nowrap font-label-lg text-label-lg uppercase tracking-wider py-1 font-medium transition-all duration-200 hover:-translate-y-0.5 text-gray-300 hover:text-primary"
-               data-path="lacak-pesanan"
-               href="{{ $isHome ? '#lacak' : url('/#lacak') }}">
-                Lacak Pesanan
-            </a>
-
             <!-- Booking Jadwal Ukur -->
             <a class="nav-item whitespace-nowrap font-label-lg text-label-lg uppercase tracking-wider py-1 font-medium transition-all duration-200 hover:-translate-y-0.5 text-gray-300 hover:text-primary"
                data-path="booking"
                href="{{ $isHome ? '#booking' : url('/#booking') }}">
-                Booking
+                Reservasi
+            </a>
+
+             <!-- Lacak Pesanan -->
+            <a class="nav-item whitespace-nowrap font-label-lg text-label-lg uppercase tracking-wider py-1 font-medium transition-all duration-200 hover:-translate-y-0.5 text-gray-300 hover:text-primary"
+               data-path="lacak-pesanan"
+               href="{{ $isHome ? '#lacak' : url('/#lacak') }}">
+                Lacak Pesanan
             </a>
 
             <a class="nav-item whitespace-nowrap font-label-lg text-label-lg uppercase tracking-wider py-1 font-medium transition-all duration-200 hover:-translate-y-0.5 text-gray-300 hover:text-primary"
@@ -64,6 +64,41 @@
                 <span class="material-symbols-outlined text-[18px]">chat</span>
                 <span>Konsultasi Gratis</span>
             </a>
+
+            @auth
+                <div class="relative hidden lg:block" id="profile-menu-wrapper">
+                    <button id="profile-menu-button" type="button"
+                            class="inline-flex items-center gap-2 min-h-11 px-3 py-2 border border-[#282d33] hover:border-primary hover:text-primary rounded-lg text-sm font-semibold text-white transition-colors"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="profile-menu">
+                        <span class="material-symbols-outlined text-[20px]" aria-hidden="true">person</span>
+                        <span class="max-w-32 truncate">{{ auth()->user()->name }}</span>
+                        <span class="material-symbols-outlined text-[16px]" aria-hidden="true">expand_more</span>
+                    </button>
+
+                    <div id="profile-menu"
+                         class="absolute right-0 top-full mt-2 w-80 bg-[#1a1816] border border-[#2d2825] rounded-xl shadow-xl overflow-hidden hidden"
+                         role="menu">
+                        @if(!auth()->user()->isAdmin())
+                            <div class="px-4 py-3 border-b border-[#2d2825]">
+                                <p class="text-xs uppercase tracking-wider text-[#78716c] font-semibold">Riwayat Pemesanan</p>
+                                <div id="profile-order-history" class="mt-2 max-h-64 overflow-y-auto space-y-2" aria-live="polite">
+                                    <p class="text-xs text-[#a8a29e]">Memuat riwayat pemesanan...</p>
+                                </div>
+                            </div>
+                        @endif
+                        <button type="button" class="profile-logout w-full min-h-11 flex items-center gap-2 px-4 py-3 text-left text-sm text-[#a8a29e] hover:text-white hover:bg-[#282422] transition-colors" role="menuitem">
+                            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">logout</span>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            @else
+                <a class="hidden sm:inline-flex items-center gap-2 min-h-11 px-4 py-2 border border-primary/60 text-primary hover:bg-primary hover:text-charcoal rounded-lg font-semibold text-sm transition-colors"
+                   href="{{ route('login') }}">
+                    <span class="material-symbols-outlined text-[18px]" aria-hidden="true">login</span>
+                    Masuk
+                </a>
+            @endauth
 
             <!-- Mobile Menu Toggle Button -->
             <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Buka menu navigasi"
@@ -122,10 +157,39 @@
             </a>
 
             <a class="sm:hidden flex items-center justify-center gap-2 mt-3 mb-3 px-5 py-3.5 bg-primary text-charcoal font-semibold rounded font-label-lg text-label-lg uppercase tracking-wider shadow-sm"
-               href="https://wa.me/6281288990211" rel="noopener noreferrer" target="_blank">
+               href="https://wa.me/6289694756666" rel="noopener noreferrer" target="_blank">
                 <span class="material-symbols-outlined text-[18px]">chat</span>
                 <span>Konsultasi WhatsApp</span>
             </a>
+
+            @auth
+                @if(!auth()->user()->isAdmin())
+                    <button id="mobile-history-button" type="button"
+                       class="flex items-center justify-between w-full min-h-11 py-3.5 border-b border-[#282d33] text-gray-300 hover:text-primary transition-colors"
+                       aria-expanded="false" aria-controls="mobile-order-history">
+                        <span class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">receipt_long</span>
+                            Riwayat Pemesanan
+                        </span>
+                        <span class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_right</span>
+                    </button>
+                    <div id="mobile-order-history"
+                         class="hidden max-h-64 overflow-y-auto space-y-2 py-3 border-b border-[#282d33]"
+                         aria-live="polite">
+                        <p class="text-xs text-[#a8a29e]">Memuat riwayat pemesanan...</p>
+                    </div>
+                @endif
+                <button type="button" class="profile-logout flex items-center gap-2 min-h-11 py-3.5 text-gray-300 hover:text-primary text-left transition-colors">
+                    <span class="material-symbols-outlined text-[18px]" aria-hidden="true">logout</span>
+                    Logout
+                </button>
+            @else
+                <a class="flex items-center justify-center gap-2 min-h-11 mt-3 px-5 py-3.5 border border-primary/60 text-primary rounded font-semibold"
+                   href="{{ route('login') }}">
+                    <span class="material-symbols-outlined text-[18px]" aria-hidden="true">login</span>
+                    Masuk
+                </a>
+            @endauth
         </nav>
     </div>
 </header>

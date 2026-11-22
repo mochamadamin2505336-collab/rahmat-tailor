@@ -16,20 +16,10 @@
     <div class="space-y-2">
       <div class="flex items-center gap-2">
       </div>
-      <h1 class="font-serif text-3xl md:text-4xl text-[#14171A] font-medium tracking-tight">Booking Jadwal Ukur & Pemesanan Online</h1>
+      <h1 class="font-serif text-3xl md:text-4xl text-[#14171A] font-medium tracking-tight">Pesan Online</h1>
       <p class="text-sm text-neutral-600 max-w-2xl">
-        Reservasi sesi privat pengukuran anatomi tubuh bersama Master Tailor di atelier, atau lakukan pemesanan online langsung dengan input ukuran tubuh mandiri dan unggah model impian Anda.
+        pemesanan online langsung dengan input ukuran tubuh mandiri dan unggah model yang diinginkan.
       </p>
-    </div>
-    <div class="flex items-center gap-3 flex-wrap">
-      <div class="flex items-center gap-2 bg-[#FAF6F0] border border-[#BA8B4E]/30 px-3.5 py-1.5 rounded shadow-xs">
-        <span class="w-2.5 h-2.5 rounded-full bg-[#BA8B4E] animate-pulse"></span>
-        <span class="text-xs text-[#14171A] uppercase font-bold">Slot Hari Ini: Tersedia 4 Sesi</span>
-      </div>
-      <div class="hidden sm:flex items-center gap-2 bg-[#FAF6F0] border border-[#BA8B4E]/30 px-3.5 py-1.5 rounded text-neutral-700 shadow-xs">
-        <span class="material-symbols-outlined text-[18px] text-[#BA8B4E]">verified_user</span>
-        <span class="text-xs uppercase font-bold text-[#14171A]">Verifikasi Master Tailor (PB-20)</span>
-      </div>
     </div>
   </div>
 
@@ -41,12 +31,10 @@
     <div class="pemesanan-form w-full min-w-0 bg-white p-5 sm:p-8 md:p-10 rounded-xl shadow-[0_4px_24px_rgba(20,23,26,0.06)] border border-[#E5DFD5] space-y-8">
       <div>
         <div class="flex items-center gap-2 text-[#BA8B4E] mb-1">
-          <span class="material-symbols-outlined text-[18px]">tune</span>
-          <span class="text-xs uppercase tracking-wider font-bold">Pemesanan Jarak Jauh (Online Bespoke)</span>
         </div>
         <h2 class="font-serif text-2xl md:text-3xl text-[#14171A] font-medium">Formulir Pemesanan & Ukuran Mandiri</h2>
         <p class="text-xs sm:text-sm text-neutral-600 mt-1">
-          Pesan pakaian tanpa perlu ke atelier. Masukkan ukuran tubuh mandiri menggunakan pita meteran, klik tombol <strong>(?)</strong> di samping setiap ukuran untuk panduan visual, lalu unggah model impian Anda.
+          Pesan pakaian tanpa perlu ke kios. Masukkan ukuran tubuh mandiri menggunakan pita meteran, klik tombol <strong>(?)</strong> di samping setiap ukuran untuk panduan visual, lalu unggah model impian Anda.
         </p>
       </div>
 
@@ -80,7 +68,7 @@
           </div>
         </div>
 
-        <!-- B. PILIH KATEGORI BUSANA (Celana, Baju, Rok) -->
+        <!-- B. PILIH KATEGORI BUSANA  -->
         <div class="space-y-4">
           <div class="flex items-center justify-between pb-2 border-b border-[#E5DFD5]">
             <div class="flex items-center gap-2">
@@ -203,13 +191,13 @@
             </div>
 
             <!-- Panjang Celana -->
-            <div class="space-y-1 md:col-span-3">
+            <div class="space-y-1">
               <div class="flex items-center justify-between gap-1">
                 <label class="block text-xs font-bold text-[#14171A]">Panjang Celana *</label>
                 <button aria-label="Panduan Panjang Celana" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 shadow-xs cursor-pointer" onclick="openMeasureModal('panjang_celana')" title="Panduan Panjang Celana" type="button">?</button>
-              </div>
-              <div class="relative max-w-xs">
-                <input class="w-full pr-10 pl-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" max="140" min="60" placeholder="Contoh: 98" required type="number">
+              </div>  
+              <div class="relative">
+                <input class="w-full max-w-xs px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" max="140" min="60" placeholder="Contoh: 98" required type="number">
                 <span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-neutral-400">cm</span>
               </div>
             </div>
@@ -413,7 +401,7 @@
                     </div>
                     <input id="seragam-lingkar-celana-bawah" class="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E5DFD5] rounded text-sm font-mono text-[#14171A] focus:outline-none focus:ring-2 focus:ring-[#BA8B4E]" max="60" min="20" placeholder="Contoh: 36" required type="number">
                   </div>
-                  <div class="space-y-1 md:col-span-3">
+                  <div class="space-y-1">
                     <div class="flex items-center justify-between gap-1">
                       <label for="seragam-panjang-celana" class="block text-xs font-bold text-[#14171A]">Panjang Celana *</label>
                       <button aria-label="Panduan Panjang Celana Seragam" class="w-5 h-5 rounded-full border border-[#BA8B4E] bg-[#FAF4EB] text-[#BA8B4E] hover:bg-[#BA8B4E] hover:text-white transition-all flex items-center justify-center text-[11px] font-bold shrink-0 cursor-pointer" onclick="openMeasureModal('panjang_celana')" title="Panduan Panjang Celana Seragam" type="button">?</button>
@@ -510,7 +498,7 @@
               <div class="w-12 h-12 rounded-full bg-[#FAF4EB] border border-[#BA8B4E]/30 flex items-center justify-center text-[#BA8B4E]">
                 <span class="material-symbols-outlined text-[26px]">add_photo_alternate</span>
               </div>
-              <p class="text-sm font-bold text-[#14171A]">Seret foto desain/siluet ke sini atau <span class="text-[#BA8B4E] underline">klik telusuri file</span></p>
+              <p class="text-sm font-bold text-[#14171A]">Seret foto desain ke sini atau <span class="text-[#BA8B4E] underline">klik telusuri file</span></p>
               <p class="text-xs text-neutral-500 max-w-md">Bisa berupa screenshot Instagram/Pinterest, pola saku/kerah, sketsa rancangan, atau foto busana idaman Anda.</p>
               <span class="mt-2 text-xs font-mono font-semibold text-[#BA8B4E] bg-[#FAF4EB] px-3 py-1 rounded border border-[#BA8B4E]/40" id="upload-preview-tag">Model terpilih: Gurkha Bespoke Pleated Cut</span>
             </div>
@@ -583,21 +571,16 @@
 
 
 <!-- MODAL / POPUP INTERAKTIF GAMBAR PANDUAN CARA MENGUKUR -->
-<div aria-hidden="true" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs transition-opacity duration-200 opacity-0 pointer-events-none" id="measure-modal" role="dialog">
-  <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-[#E5DFD5] transform transition-transform duration-200 scale-95" id="measure-modal-card">
+<div id="measure-modal" aria-hidden="true" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs transition-opacity duration-300 opacity-0 pointer-events-none">
+  <div id="measure-modal-card" class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-[#E5DFD5] transition-transform duration-300 scale-95">
     
     <!-- Modal Header -->
-    <div class="sticky top-0 bg-[#FBF9F5] px-6 py-4 border-b border-[#E5DFD5] flex items-center justify-between z-10">
-      <div class="flex items-center gap-3">
-        <span class="w-8 h-8 rounded-full bg-[#FAF4EB] text-[#BA8B4E] flex items-center justify-center border border-[#BA8B4E]/30">
-          <span class="material-symbols-outlined text-[18px]">straighten</span>
-        </span>
-        <div>
-          <span class="text-[10px] uppercase tracking-wider text-[#BA8B4E] font-bold block">Panduan Titik Ukur Anatomi</span>
-          <h3 class="font-serif text-lg font-bold text-[#14171A]" id="modal-title">Panduan Ukuran Tubuh</h3>
-        </div>
+    <div class="bg-[#FAF8F5] px-6 py-4 border-b border-[#E5DFD5] flex items-center justify-between sticky top-0 z-10">
+      <div>
+        <span class="text-[10px] uppercase tracking-wider text-[#BA8B4E] font-bold block">Panduan Anatomi Pengukuran</span>
+        <h3 class="font-serif text-lg font-bold text-[#14171A]" id="modal-title">Panduan Ukuran</h3>
       </div>
-      <button aria-label="Tutup panduan" class="w-8 h-8 rounded-full hover:bg-neutral-200/60 text-neutral-500 hover:text-[#14171A] transition-colors flex items-center justify-center cursor-pointer" onclick="closeMeasureModal()" type="button">
+      <button aria-label="Tutup panduan" class="w-8 h-8 rounded-full hover:bg-neutral-200/60 text-neutral-600 flex items-center justify-center transition-colors cursor-pointer" onclick="closeMeasureModal()" type="button">
         <span class="material-symbols-outlined text-[20px]">close</span>
       </button>
     </div>
@@ -605,21 +588,64 @@
     <!-- Modal Body -->
     <div class="p-6 space-y-5">
       
-      <!-- Visual Gambar / Diagram Anatomi dengan Garis Pita Meteran Emas -->
-      <div class="w-full bg-[#FAF8F5] rounded-xl p-5 border border-[#E5DFD5] flex flex-col items-center justify-center relative overflow-hidden">
-        <svg class="w-44 h-52 text-[#14171A]" fill="none" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-          <!-- Siluet Anatomi Tubuh Manusia -->
-          <circle cx="100" cy="30" fill="#EADECF" opacity="0.8" r="16"></circle>
-          <path d="M88 45 C78 50, 48 58, 44 95 C41 120, 36 150, 34 165 C32 172, 38 174, 42 168 C48 152, 54 125, 56 112 C57 142, 60 170, 58 230 C58 234, 94 234, 95 230 C97 185, 98 160, 100 145 C102 160, 103 185, 105 230 C106 234, 142 234, 142 230 C140 170, 143 142, 144 112 C146 125, 152 152, 158 168 C162 174, 168 172, 166 165 C164 150, 159 120, 156 95 C152 58, 122 50, 112 45 Z" fill="#F4F0E8" stroke="#D3C4B5" stroke-width="1.5"></path>
+      <!-- Wadah Perspektif 3D -->
+      <div id="anatomy-3d-wrapper" style="perspective: 950px;" class="w-full bg-gradient-to-b from-[#FAF8F5] to-[#F2ECE1] rounded-xl p-5 border border-[#E5DFD5] flex flex-col items-center justify-center relative select-none touch-none cursor-grab active:cursor-grabbing">
+        
+        <!-- Panggung 3D yang bisa diputar 360 derajat -->
+        <div id="anatomy-3d-stage" style="transform-style: preserve-3d;" class="relative flex flex-col items-center justify-center w-full py-2">
           
-          <!-- Garis Dinamis Meteran Pita Emas (posisi diupdate via script) -->
-          <g id="modal-tape-group">
-            <line id="svg-tape-line" stroke="#BA8B4E" stroke-dasharray="4 3" stroke-width="3.5" x1="58" x2="142" y1="114" y2="114"></line>
-            <circle cx="58" cy="114" fill="#BA8B4E" id="svg-tape-c1" r="4.5"></circle>
-            <circle cx="142" cy="114" fill="#BA8B4E" id="svg-tape-c2" r="4.5"></circle>
-          </g>
-        </svg>
-        <span class="mt-2 font-mono text-[11px] text-[#BA8B4E] uppercase tracking-wider font-semibold bg-[#FAF4EB] px-3 py-1 rounded-full border border-[#BA8B4E]/30" id="modal-tag">Garis Ukur: Lingkar Pinggang</span>
+          <!-- Layer Belakang: Cincin Lantai Studio Tailor -->
+          <div style="transform: translateZ(-22px) rotateX(68deg);" class="absolute bottom-6 w-36 h-36 rounded-full border border-dashed border-[#BA8B4E]/35 bg-[#EADECF]/20 pointer-events-none"></div>
+
+          <!-- Layer Utama SVG Anatomi dengan Kedalaman 3D -->
+          <svg id="anatomy-svg-3d" style="transform: translateZ(16px); filter: drop-shadow(0 16px 18px rgba(20, 23, 26, 0.12));" class="w-44 h-52 text-[#14171A] overflow-visible pointer-events-none" fill="none" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="body3dGrad" x1="35" y1="30" x2="165" y2="220" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFFDF9" />
+                <stop offset="55%" stop-color="#F4F0E8" />
+                <stop offset="100%" stop-color="#E2D5C3" />
+              </linearGradient>
+              <radialGradient id="head3dGrad" cx="40%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="#F7EFE3" />
+                <stop offset="100%" stop-color="#DFCBB2" />
+              </radialGradient>
+            </defs>
+
+            <!-- Bagian Belakang Pita Meteran -->
+            <path id="tape-3d-back" d="M 58 114 Q 100 103 142 114" stroke="#BA8B4E" stroke-opacity="0.35" stroke-dasharray="3 3" stroke-width="2.5" fill="none" />
+
+            <!-- Siluet Anatomi Tubuh 3D -->
+            <circle cx="100" cy="30" fill="url(#head3dGrad)" stroke="#D3C4B5" stroke-width="1.2" r="16"></circle>
+            <path d="M88 45 C78 50, 48 58, 44 95 C41 120, 36 150, 34 165 C32 172, 38 174, 42 168 C48 152, 54 125, 56 112 C57 142, 60 170, 58 230 C58 234, 94 234, 95 230 C97 185, 98 160, 100 145 C102 160, 103 185, 105 230 C106 234, 142 234, 142 230 C140 170, 143 142, 144 112 C146 125, 152 152, 158 168 C162 174, 168 172, 166 165 C164 150, 159 120, 156 95 C152 58, 122 50, 112 45 Z" fill="url(#body3dGrad)" stroke="#CBB9A6" stroke-width="1.5"></path>
+
+            <!-- Bagian Depan Pita Meteran Emas 3D -->
+            <g id="tape-3d-front-group">
+              <path id="tape-3d-front" d="M 58 114 Q 100 127 142 114" stroke="#BA8B4E" stroke-width="4" stroke-linecap="round" fill="none" />
+              <circle id="tape-3d-c1" cx="58" cy="114" r="4.8" fill="#BA8B4E" stroke="#FFFDF9" stroke-width="1.5" />
+              <circle id="tape-3d-c2" cx="142" cy="114" r="4.8" fill="#BA8B4E" stroke="#FFFDF9" stroke-width="1.5" />
+            </g>
+
+            <!-- Elemen asli disembunyikan sebagai referensi koordinat -->
+            <g id="modal-tape-group" class="opacity-0 pointer-events-none">
+              <line id="svg-tape-line" x1="58" x2="142" y1="114" y2="114"></line>
+              <circle cx="58" cy="114" id="svg-tape-c1" r="4.5"></circle>
+              <circle cx="142" cy="114" id="svg-tape-c2" r="4.5"></circle>
+            </g>
+          </svg>
+
+          <!-- Layer Paling Depan: Label Melayang -->
+          <span style="transform: translateZ(36px);" class="mt-3 font-mono text-[11px] text-[#BA8B4E] uppercase tracking-wider font-semibold bg-[#FAF4EB]/95 px-3.5 py-1 rounded-full border border-[#BA8B4E]/40 shadow-sm pointer-events-none" id="modal-tag">
+            Garis Ukur: Lingkar Pinggang
+          </span>
+        </div>
+
+        <!-- Petunjuk & Tombol Reset Sudut -->
+        <span class="absolute top-2.5 left-3 text-[10px] font-mono text-[#14171A]/50 pointer-events-none">
+          Geser untuk putar 360°
+        </span>
+        <button type="button" id="reset-3d-angle" class="absolute top-2 right-2.5 text-[10px] font-mono text-[#BA8B4E] hover:text-[#14171A] bg-white/80 px-2 py-0.5 rounded border border-[#E5DFD5] cursor-pointer transition-colors">
+          Reset Posisi
+        </button>
       </div>
 
       <!-- Langkah Cara Mengukur -->
@@ -656,7 +682,6 @@
 
   </div>
 </div>
-
 @endsection
 
 @push('scripts')

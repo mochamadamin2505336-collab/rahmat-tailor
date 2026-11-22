@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Pelanggan;
 use App\Models\Pesanan;
 use App\Models\Ukuran;
+use App\Models\Layanan;
 use App\Support\AturanUkuran;
 use App\Support\NomorWhatsapp;
 use App\Support\PesananService;
@@ -15,6 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
@@ -86,6 +88,9 @@ class PesananController extends Controller
             'catatan' => $pesanan->catatan,
             'target_tanggal' => $pesanan->target_tanggal?->toDateString(),
             'foto_referensi' => $pesanan->foto_referensi,
+            'foto_referensi_url' => $pesanan->foto_referensi
+                ? Storage::disk('public')->url($pesanan->foto_referensi)
+                : null,
             'ukuran' => $pesanan->ukuran,
             'status_log' => $pesanan->statusLog,
             'pembayaran' => $pesanan->pembayaran,
@@ -105,7 +110,7 @@ class PesananController extends Controller
         $aturan = [
             'nama' => ['required', 'string', 'max:100'],
             'no_whatsapp' => NomorWhatsapp::aturan(),
-            'layanan_id' => ['required', Rule::exists('layanan', 'id')->where('aktif', true)],
+            'layanan_id' => ['nullable', 'integer', Rule::exists('layanan', 'id')->where('aktif', true)],
             'bahan' => ['required', Rule::in(['sendiri', 'toko'])],
             'catatan' => ['nullable', 'string', 'max:1000'],
             'harga' => ['nullable', 'integer', 'min:0'],
@@ -120,6 +125,18 @@ class PesananController extends Controller
         }
 
         $data = $this->validasi($request, $aturan, self::NAMA + AturanUkuran::namaAtribut());
+
+        if (empty($data['layanan_id'])) {
+            $layanan = Layanan::query()->where('aktif', true)->orderBy('urutan')->orderBy('nama')->first();
+
+            if ($layanan === null) {
+                throw ValidationException::withMessages([
+                    'layanan_id' => 'Belum ada layanan aktif untuk pesanan offline.',
+                ]);
+            }
+
+            $data['layanan_id'] = $layanan->id;
+        }
 
         $pesanan = DB::transaction(function () use ($data, $salin, $servis, $request): Pesanan {
             $pelanggan = Pelanggan::firstOrCreate(

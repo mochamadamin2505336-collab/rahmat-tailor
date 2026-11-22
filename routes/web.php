@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Galeri;
 use App\Models\Layanan;
+use App\Models\Testimoni;
 
 Route::get('/', function () {
     $layanan = Layanan::query()
@@ -13,7 +14,14 @@ Route::get('/', function () {
 
     $galeri = Galeri::query()->latest()->get();
 
-    return view('index', compact('layanan', 'galeri'));
+    $testimoni = Testimoni::query()
+        ->with('pelanggan:id,nama')
+        ->where('tampil', true)
+        ->latest()
+        ->limit(6)
+        ->get();
+
+    return view('index', compact('layanan', 'galeri', 'testimoni'));
 })->name('beranda');
 
 Route::get('/pemesanan', function () {

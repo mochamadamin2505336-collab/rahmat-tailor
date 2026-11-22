@@ -7,6 +7,7 @@ use App\Enums\StatusPesanan;
 use App\Http\Controllers\Controller;
 use App\Models\Jadwal;
 use App\Models\Pesanan;
+use App\Models\Pembayaran;
 use App\Models\Testimoni;
 use Illuminate\Http\JsonResponse;
 
@@ -21,6 +22,11 @@ class DashboardController extends Controller
             ->selectRaw('status, count(*) as jumlah')
             ->groupBy('status')
             ->pluck('jumlah', 'status');
+
+        $pendapatanBulan = Pembayaran::query()
+            ->whereYear('tanggal', now()->year)
+            ->whereMonth('tanggal', now()->month)
+            ->sum('jumlah');
 
         $statusAktif = collect(StatusPesanan::cases())
             ->reject(fn (StatusPesanan $status): bool => $status === StatusPesanan::SiapDiambil)
@@ -38,6 +44,8 @@ class DashboardController extends Controller
             ->map(fn (Pesanan $pesanan): array => $pesanan->ringkas());
 
         return response()->json([
+            'total_pesanan' => (int) Pesanan::query()->count(),
+            'pendapatan_bulan' => (int) $pendapatanBulan,
             'per_status' => collect(StatusPesanan::cases())->map(fn (StatusPesanan $status): array => [
                 'status' => $status->value,
                 'label' => $status->label(),
